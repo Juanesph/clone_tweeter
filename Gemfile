@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # gem devise
 gem 'devise'
 
+# gem Kaminari
+gem 'kaminari'
+
 # Bootstrap 4.4.1
 #gem 'bootstrap'
 
