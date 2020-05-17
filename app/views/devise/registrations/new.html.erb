@@ -4,8 +4,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label "Nombre de Usuario" %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "Nombre de Usuario" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Imagen_de_perfil" %><br />
+    <%= f.text_field :image_url, autocomplete: "Imagen de perfil" %>
   </div>
 
   <div class="field">
