@@ -15,7 +15,8 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = Tweet.create(tweet_params)
+    
     if @tweet.save
       flash[:notice] = "Tu Tweet ha sido creado"      
     else
