@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   #root to: "home#index"
   resources :tweets
   resources :likes
+  resources :users
   root 'tweets#index'
 end

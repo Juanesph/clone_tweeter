@@ -13,21 +13,23 @@
         <p class="card-text"><%= tweet.content %></p>
         <%= link_to "Like", likes_path(tweet.id), method: :post,  class:"btn btn-primary btn-sm" %>
         <%= link_to "Re-tweet", tweets_path, class:"btn btn-primary btn-sm" %>
+        <%= link_to distance_of_time_in_words(Time.now, tweet.created_at), tweet_path(tweet.id) %>
       </div>
     </div>
 
   <% end %>
-<% else %>
-  <% @tweets.each do |tweet| %>
-
-    <div class="card my-4" style="width: 18rem;">
-      <%= image_tag "#{tweet.image_url}", class: "card-img-top" %>
-      <div class="card-body">
-        <p class="card-text"><%= tweet.content %></p>
-       <%= link_to "Like", likes_path(tweet.id), method: post, class:"btn btn-primary btn-sm" %>
-        <%= link_to "Re-tweet", tweets_path, class:"btn btn-primary btn-sm" %>
-      </div>
-    </div>
+  <% else %>
+    
+      <% @tweets.each do |tweet| %>
+        <div class="card my-4" style="width: 18rem;">
+          <%= image_tag "#{tweet.image_url}", class: "card-img-top"%>
+          <div class="card-body">
+            <p class="card-text"><%= tweet.content %></p>
+            <%= link_to "Re-tweet", tweets_path, class:"btn btn-primary btn-sm" %>
+            <%= link_to distance_of_time_in_words(Time.now, tweet.created_at), tweet_path(tweet.id) %>
+          </div>
+        </div>
+    
   
   <% end %>
 

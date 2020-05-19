@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+ 
   def index
     @tweets = Tweet.order(:last).page(params[:page])
     @tweet = Tweet.new
@@ -9,6 +10,7 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.find(params[:id]) 
   end
 
   def edit
@@ -32,8 +34,9 @@ class TweetsController < ApplicationController
   end
 
   private
+  
+
   def tweet_params
     params.require(:tweet).permit(:content, :image_url)
   end
-  
 end

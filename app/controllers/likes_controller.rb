@@ -12,5 +12,6 @@ class LikesController < ApplicationController
     else
       @like = Like.create(user_id: current_user.id, tweet_id: params[:tweet_id])
     end  
+    redirect_to root_path
   end
 end
