@@ -1,8 +1,10 @@
-<h1>Tweets#show</h1>
-<p>Find me in app/views/tweets/show.html.erb</p>
-<hr>
-          
-   <p><%= image_tag "#{@tweet.image_url}" %></p>
+<h1>Tweet Description</h1>
+
+
+      <p><%= @tweet.user.username %></p>    
+      <p><%= image_tag "#{@tweet.image_url}" %></p>
       <p><%= @tweet.id %></p>
       <p><%= distance_of_time_in_words(Time.now, @tweet.created_at) %></p>
+      <p><%=image_tag "#{@tweet.user.image_url}", class:"image-icon" %></p>
+
 

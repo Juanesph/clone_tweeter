@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
  
   def index
-    @tweets = Tweet.order(:last).page(params[:page])
+    @tweets = Tweet.order(created_at: :desc).page(params[:page])
     @tweet = Tweet.new
   end
 
@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.create(tweet_params)
+    @tweet.user = current_user
     
     if @tweet.save
       flash[:notice] = "Tu Tweet ha sido creado"      
