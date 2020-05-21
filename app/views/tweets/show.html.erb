@@ -7,4 +7,8 @@
       <p><%= distance_of_time_in_words(Time.now, @tweet.created_at) %></p>
       <p><%=image_tag "#{@tweet.user.image_url}", class:"image-icon" %></p>
 
-
+      <div>
+            <% @tweet.users_images.each do |tw| %>
+                   <%=image_tag "#{tw}" %>
+            <% end %>
+      </div>

@@ -1,8 +1,14 @@
 class TweetsController < ApplicationController
  
   def index
+    @q = Tweet.ransack(params[:q])
     @tweets = Tweet.order(created_at: :desc).page(params[:page])
     @tweet = Tweet.new
+  end
+
+  def searching_tweet
+    @q = Tweet.ransack(params[:q])
+    @tweet_search = @q.result(distinct: true)
   end
 
   def new
