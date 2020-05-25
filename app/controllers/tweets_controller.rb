@@ -4,6 +4,12 @@ class TweetsController < ApplicationController
     @q = Tweet.ransack(params[:q])
     @tweets = Tweet.order(created_at: :desc).page(params[:page])
     @tweet = Tweet.new
+
+   @tweets = if params.has_key? :search
+                @tweets.where("content LIKE '%#{params[:search]}%'")
+            else
+                @tweets
+            end
   end
 
   def searching_tweet
