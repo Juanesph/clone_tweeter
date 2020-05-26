@@ -10,10 +10,21 @@ ActiveAdmin.register User do
   # or
   #
   permit_params do
-    permitted = [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :username, :image_url]
+    permitted = [:email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :username, :image_url, :banned]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
+
+  form title: 'Edit User' do |f|
+    inputs 'Detalles' do
+      f.input :email
+      f.input :username
+      f.input :image_url
+      f.input :banned
+    end
+    actions
+  end
+
   index do
     id_column
     column :username
