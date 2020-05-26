@@ -1,6 +1,7 @@
 class Tweet < ApplicationRecord
   belongs_to :user
   has_many :likes
+  has_many :retweets
   validates :content, presence: true
   paginates_per 5
 
@@ -10,4 +11,6 @@ class Tweet < ApplicationRecord
     user_images = User.where(id: user_ids).pluck(:image_url)
     user_images
   end
+
+  
 end
