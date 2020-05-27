@@ -3,8 +3,9 @@ class Tweet < ApplicationRecord
   has_many :likes
   has_many :retweets
   validates :content, presence: true
-  paginates_per 5
+  paginates_per 50
 
+  scope :tweets_for_me, -> (user_ids) {where(user_id: user_ids)}
 
   def users_images
     user_ids = likes.pluck(:user_id)
@@ -12,5 +13,6 @@ class Tweet < ApplicationRecord
     user_images
   end
 
+   
   
 end

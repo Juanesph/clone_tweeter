@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_180619) do
+ActiveRecord::Schema.define(version: 2020_05_27_044423) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_05_26_180619) do
     t.boolean "active", default: true
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "retweets", force: :cascade do |t|

@@ -15,15 +15,16 @@ ActiveAdmin.register User do
     permitted
   end
 
-  form title: 'Edit User' do |f|
-    inputs 'Detalles' do
-      f.input :email
-      f.input :username
-      f.input :image_url
-      f.input :banned
-    end
-    actions
-  end
+  # form title: 'Edit User' do |f|
+  #   inputs 'Detalles' do
+  #     f.input :email
+  #     f.input :username
+  #     f.input :image_url
+  #     f.input :password
+  #     f.input :banned
+  #   end
+  #   actions
+  # end
 
   index do
     id_column
@@ -40,6 +41,12 @@ ActiveAdmin.register User do
     end
     column :likes do |user|
       user.likes.count
+    end
+    column :followings do |user|
+      user.followings.count
+    end
+    column :followers do |user|
+      user.followers.count
     end
     actions
   end
