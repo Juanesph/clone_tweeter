@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
+  post 'api/news'
+  post 'api/:fecha1/:fecha2', to: 'api#between_dates' 
+  post 'api/create_tweet', to: 'api#create_tweet'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root to: "home#index"
   resources :tweets do 
