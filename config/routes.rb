@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'retweets/create'
   get 'likes/create'
+  get 'tweets/all_tweets'
   post 'likes/:tweet_id', to: 'likes#create', as: 'likes'
   post 'retweets/:tweet_id', to: 'retweets#create', as: 'retweets'
   devise_for :users, controllers: {

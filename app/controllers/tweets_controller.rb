@@ -55,6 +55,16 @@ class TweetsController < ApplicationController
   def destroy
   end
 
+  def all_tweets
+    if user_signed_in?
+      @tweets = Tweet.order(created_at: :desc).page(params[:page])
+      @tweet = Tweet.new
+    else 
+      @tweets = Tweet.order(created_at: :desc).page(params[:page])
+      @tweet = Tweet.new
+    end 
+  end
+
   private
   
 

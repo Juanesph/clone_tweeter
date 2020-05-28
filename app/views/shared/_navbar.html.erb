@@ -8,6 +8,7 @@
       <% if signed_in? %>
         <%= link_to "Inicio", tweets_path, class: "nav-item nav-link" %>
         <%= link_to "Crear tweet", new_tweet_path, class: "nav-item nav-link" %>
+        <%= link_to "Todos los tweets", tweets_all_tweets_path, class: "nav-item nav-link" %>
         <%= link_to "Perfil", edit_user_registration_path, class: "nav-item nav-link" %>
         <%= link_to "Salir", destroy_user_session_path, method: :delete, data: { confirm: 'Estas seguro?'}, class: "nav-item nav-link" %>
         
@@ -15,6 +16,7 @@
         <%= link_to "Inicio", tweets_path, class: "nav-item nav-link" %> 
         <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-item nav-link" %>
          <%= link_to "Registrarse", new_user_registration_path, class: "nav-item nav-link" %>
+         <%= link_to "Todos los tweets", tweets_all_tweets_path, class: "nav-item nav-link" %>
       <% end %>
     </div>
     
