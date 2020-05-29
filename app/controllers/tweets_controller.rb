@@ -63,6 +63,11 @@ class TweetsController < ApplicationController
       @tweets = Tweet.order(created_at: :desc).page(params[:page])
       @tweet = Tweet.new
     end 
+    @tweets = if params.has_key? :search
+      @tweets.where("content LIKE '%#{params[:search]}%'")
+    else
+      @tweets
+    end
   end
 
   private

@@ -1,4 +1,6 @@
 class ApiController < ActionController::API
+  acts_as_token_authentication_handler_for User
+
   def news
     @tweets = Tweet.all.order(created_at: :desc).page(params[:page])
     @tweets = @tweets.map do |tweet|
@@ -31,7 +33,7 @@ class ApiController < ActionController::API
   def create_tweet
     @tweet = Tweet.create(
       content: params.require(:content),
-      user: User.find(params.require(:user_id)),
+      user: current_user
     )
     
     render json: @tweet

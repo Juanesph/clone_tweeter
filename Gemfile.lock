@@ -286,7 +286,7 @@ DEPENDENCIES
   ransack
   sass-rails (~> 5.0)
   selenium-webdriver
-  simple_token_authentication (~> 1.17)
+  simple_token_authentication (~> 1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
