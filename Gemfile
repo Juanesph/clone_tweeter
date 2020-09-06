@@ -40,6 +40,12 @@ gem 'ransack'
 # gem devise
 gem 'devise'
 
+# Gem inicio session con google
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+
+
 # gem Kaminari
 gem 'kaminari'
 

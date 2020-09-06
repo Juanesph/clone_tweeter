@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   post 'likes/:tweet_id', to: 'likes#create', as: 'likes'
   post 'retweets/:tweet_id', to: 'retweets#create', as: 'retweets'
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'omniauth'
   }
   post 'api/news'
   post 'api/:fecha1/:fecha2', to: 'api#between_dates' 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
       get :searching_tweet
     end
   end
+  
   resources :likes
   resources :users
   root 'tweets#index'
